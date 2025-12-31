@@ -1,0 +1,18 @@
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 3.0"
+    }
+  }
+}
+
+module "resource_group" {
+  source = "../modules/azurerm/resource_group"
+
+  name     = var.resource_group_name
+  location = var.location
+  tags     = var.tags
+}
